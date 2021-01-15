@@ -39,6 +39,9 @@ export default class TokenAuthentication {
   * @param {Object} res - Response.
   */
   async run(req: Object, res: Object): Promise<void> {
+
+    //console.log(req.body);
+
     if (
       !req.body.apiVersion ||
       !req.body.kind ||
@@ -79,11 +82,15 @@ export default class TokenAuthentication {
     };
     try {
       let tokenData = this.extractAndVerifyToken(token);
-      let ldapObject = await this.authenticator.getAttributes(
-        tokenData.username,
-        this.mapping.getLdapAttributes()
-      );
-      responseData.status.user = this.mapping.ldapToKubernetes(ldapObject);
+      //console.log("tokenData: ", tokenData.sub, eval(tokenData.groups));
+      console.log("tokenData: ", tokenData);
+
+      responseData.status.user = {
+        username: tokenData.username, //this.mapping.ldapToKubernetes(ldapObject);
+        uid: tokenData.username,
+        groups: eval(tokenData.groups),
+        extraFields: null
+      }
       responseData.status.authenticated = true;
     } catch (error) {
       delete responseData.status.user;
