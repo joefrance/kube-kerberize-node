@@ -1,4 +1,9 @@
-# kube-ldap
+# kube-kerberize-node
+
+This is based off the repo kube-ldap.
+
+But it adds a k8s token review webhook for use with kube-kerberize Kerberos authentication service and client-go plugin.
+
 [![Build Status](https://travis-ci.org/gyselroth/kube-ldap.svg)](https://travis-ci.org/gyselroth/kube-ldap)
  [![Coverage Status](https://coveralls.io/repos/github/gyselroth/kube-ldap/badge.svg)](https://coveralls.io/github/gyselroth/kube-ldap)
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
