@@ -1,0 +1,11 @@
+apiVersion: kubeadm.k8s.io/v1beta2
+kind: ClusterConfiguration
+apiServer:
+  extraArgs:
+    authentication-token-webhook-config-file: /etc/kube-kerberize-node-webhook.yaml
+  extraVolumes:
+    - name: authentication-token-webhook-config-file
+      mountPath: /etc/kube-kerberize-node-webhook.yaml
+      hostPath: /root/kube-kerberize-node-webhook.yaml
+#  certSANs:
+#    - <K8S-EXTERNAL-IP>

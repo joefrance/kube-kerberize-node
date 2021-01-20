@@ -1,0 +1,16 @@
+# See: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentications
+apiVersion: v1
+kind: Config
+clusters:
+  - name: authn
+    cluster:
+      server: https://localhost:8081/token
+      insecure-skip-tls-verify: true
+users:
+  - name: kube-apiserver
+contexts:
+- context:
+    cluster: authn
+    user: kube-apiserver
+  name: authn
+current-context: authn

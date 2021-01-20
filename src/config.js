@@ -46,8 +46,8 @@ const getConfig = () => {
     },
     tls: {
       enabled: parseBooleanFromEnv(process.env.TLS_ENABLED, true),
-      cert: process.env.TLS_CERT_PATH || '/etc/ssl/kube-ldap/cert.pem',
-      key: process.env.TLS_KEY_PATH || '/etc/ssl/kube-ldap/key.pem',
+      cert: process.env.TLS_CERT_PATH || '/etc/ssl/kube-kerberize-node/cert.pem',
+      key: process.env.TLS_KEY_PATH || '/etc/ssl/kube-kerberize-node/key.pem',
       ca: process.env.TLS_CA_PATH || null,
     },
     prometheus: {

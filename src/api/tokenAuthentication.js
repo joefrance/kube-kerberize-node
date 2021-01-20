@@ -89,14 +89,17 @@ export default class TokenAuthentication {
         username: tokenData.username, //this.mapping.ldapToKubernetes(ldapObject);
         uid: tokenData.username,
         groups: eval(tokenData.groups),
-        extraFields: null
+        extra: null,
+        audiences: null
       }
       responseData.status.authenticated = true;
     } catch (error) {
       delete responseData.status.user;
+      var errorString = `[${error.name}] with message [${error.message}]`;
       responseData.status.authenticated = false;
+      responseData.status.error = errorString;
       this.logger.info('Error while verifying token: ' +
-        `[${error.name}] with message [${error.message}]`);
+      errorString);
     }
     return responseData;
   }

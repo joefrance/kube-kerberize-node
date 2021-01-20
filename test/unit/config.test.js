@@ -84,12 +84,12 @@ const fixtures = {
   },
   'tls.cert': {
     env: 'TLS_CERT_PATH',
-    default: '/etc/ssl/kube-ldap/cert.pem',
+    default: '/etc/ssl/kube-kerberize-node/cert.pem',
     testValues: ['/etc/ssl/example.com/cert.pem'],
   },
   'tls.key': {
     env: 'TLS_KEY_PATH',
-    default: '/etc/ssl/kube-ldap/key.pem',
+    default: '/etc/ssl/kube-kerberize-node/key.pem',
     testValues: ['/etc/ssl/example.com/key.pem'],
   },
   'tls.ca': {
